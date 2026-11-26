@@ -156,7 +156,7 @@ body {
 
 .gameResultMsg {
   position: fixed;
-  top: 50%;
+  top: 46%;
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 100;
@@ -183,12 +183,13 @@ body {
 
 .rock,
 .paper,
-.scissors {
+.scissors,
+.resetBtn {
   display: flex;
   justify-content: center;
   align-items: center;
 
-  padding: 1.2rem 0.5rem;
+  padding: 0.5rem 0.5rem;
 
   background: var(--background);
   border: var(--border);
@@ -201,15 +202,22 @@ body {
   transition: transform 0.1s ease, box-shadow 0.1s ease;
 }
 
+.resetBtn {
+  grid-column: 1 / -1;
+  background: var(--background);
+  font-size: 1.6rem;
+}
+
 .rock:active,
 .paper:active,
 .scissors:active,
-.startBtn:active {
+.startBtn:active,
+.resetBtn:active {
   transform: translate(0.2rem, 0.2rem);
   box-shadow: 0.1rem 0.1rem 0 var(--primary-color);
 }
 
-@media (max-width: 420px) {
+@media (max-width: 320px) {
   body {
     gap: 1.25rem;
   }

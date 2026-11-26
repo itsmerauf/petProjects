@@ -1,4 +1,8 @@
   const gameObjects = [ "Rock", "Paper", "Scissors" ];
+  const rockBtn = document.querySelector(".rock");
+  const paperBtn = document.querySelector(".paper");
+  const scissorsBtn = document.querySelector(".scissors");
+  const resetBtn = document.querySelector(".resetBtn");
   const playersChoice = document.querySelector(".userChoice");
   const computersChoice = document.querySelector(".computerChoice");
   const playerScore = document.querySelector( ".userScore" );
@@ -38,10 +42,7 @@
   
   coverPageToggle();
   // ---- The Main Game Logic ---- //
-  function playerChose() {
-    const rockBtn = document.querySelector(".rock");
-    const paperBtn = document.querySelector(".paper");
-    const scissorsBtn = document.querySelector(".scissors");
+  function playerChose() { 
   
     rockBtn.addEventListener("click", () => {
       playersChoice.textContent = gameObjects[0];
@@ -83,9 +84,7 @@
        && computersChoice.textContent === gameObjects[0]
        || playersChoice.textContent === gameObjects[2]
        && computersChoice.textContent === gameObjects[1]) {
-      setTimeout(() => {
       resultMsg.textContent = `${namePicker[0].toUpperCase() + namePicker.slice(1)} won!`;
-      }, 200);
       scoreChanger();
     } else if (computersChoice.textContent === gameObjects[0]
               && playersChoice.textContent === gameObjects[2]
@@ -93,14 +92,10 @@
               && playersChoice.textContent === gameObjects[0]
               || computersChoice.textContent === gameObjects[2]
               && playersChoice.textContent === gameObjects[1]) {
-      setTimeout(() => {
       resultMsg.textContent = "Computer won!";
-      }, 200);
       scoreChanger();
     } else {
-      setTimeout(() => {
       resultMsg.textContent = "It's a tie!";
-     }, 200)
     }
   };
 
@@ -126,3 +121,16 @@
     }
   }
   
+  function resetGame() {
+    resetBtn.addEventListener("click", () => {
+      playersScore = 0;
+      computersScore = 0;
+      playerScore.textContent = playersScore;
+      computerScore.textContent = computersScore;
+      playersChoice.textContent = "";
+      computersChoice.textContent = "";
+      resultMsg.textContent = "";
+    })
+  }
+  
+  resetGame();
